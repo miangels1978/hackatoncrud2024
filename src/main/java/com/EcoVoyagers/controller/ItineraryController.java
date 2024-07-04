@@ -2,10 +2,12 @@ package com.EcoVoyagers.controller;
 
 import com.EcoVoyagers.model.Itinerary;
 import com.EcoVoyagers.service.ItineraryService;
+import com.EcoVoyagers.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -14,6 +16,9 @@ public class ItineraryController {
 
     @Autowired
     ItineraryService itineraryService;
+
+    @Autowired
+    WeatherService weatherService;
 
     @GetMapping(path = "/itineraries")
     public ArrayList<Itinerary> getAllItineraries() {
@@ -39,4 +44,6 @@ public class ItineraryController {
     public Itinerary updateItinerary(@PathVariable("id") int id, @RequestBody Itinerary updatedItinerary) {
         return itineraryService.updateItinerary(id, updatedItinerary);
     }
+
+
 }
