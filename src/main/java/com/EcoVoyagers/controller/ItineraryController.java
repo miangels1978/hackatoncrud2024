@@ -26,8 +26,8 @@ public class ItineraryController {
     }
 
     @DeleteMapping(path = "/itineraries/{id}")
-    public String deleteItinerary(@PathVariable("id") int id, @RequestBody Itinerary deleteItinerary) {
-        boolean isRemoved = itineraryService.deleteItinerary(id, deleteItinerary);
+    public String deleteItinerary(@PathVariable("id") int id) {
+        boolean isRemoved = itineraryService.deleteItinerary(id);
         if (isRemoved) {
             return "Itinerary with identification " + id + " was deleted successfully.";
         } else {

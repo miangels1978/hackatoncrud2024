@@ -44,17 +44,5 @@ public class ItineraryService {
         }
     }
 
-    public boolean deleteItinerary(int id, Itinerary updatedItinerary) {
-        Optional<Itinerary> optionalTask = itineraryRepository.findById(id);
-        if (optionalTask.isPresent()) {
-            Itinerary existingItinerary = optionalTask.get();
-            existingItinerary.setDestination(updatedItinerary.getDestination());
-            existingItinerary.setActivity(updatedItinerary.getActivity());
-            // actualizar otros campos según sea necesario
-            itineraryRepository.save(existingItinerary);
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 }
